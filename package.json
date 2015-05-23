@@ -1,0 +1,19 @@
+{
+  "name": "bddy",
+  "version": "1.0.0",
+  "description": "Specifications by example buddy",
+  "main": "bddy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwakley/bddy.git"
+  },
+  "author": "John Wakley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnwakley/bddy/issues"
+  },
+  "homepage": "https://github.com/johnwakley/bddy#readme"
+}
