@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Specifications by example buddy",
   "main": "bddy.js",
+  "config": {
+    "MOCHA_OPTS": "test/"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src --experimental --source-maps-inline -d ./dist",
+    "test": "babel-node -r node_modules/.bin/_mocha $npm_package_config_MOCHA_OPTS"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/johnwakley/bddy/issues"
   },
-  "homepage": "https://github.com/johnwakley/bddy#readme"
+  "homepage": "https://github.com/johnwakley/bddy#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^5.5.4",
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1"
+  }
 }

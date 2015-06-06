@@ -8,4 +8,4 @@ WORKDIR /opt/bddy/
 
 # Install app dependencies
 RUN npm install
-RUN npm install -g babel
+RUN sudo npm install -g babel
