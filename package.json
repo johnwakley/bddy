@@ -24,6 +24,8 @@
   "devDependencies": {
     "babel": "^5.5.4",
     "chai": "^3.0.0",
+    "eslint": "^0.22.1",
+    "eslint-plugin-react": "^2.5.0",
     "mocha": "^2.2.5",
     "sinon": "^1.14.1"
   }
