@@ -20,10 +20,11 @@
     "url": "https://github.com/johnwakley/bddy/issues"
   },
   "homepage": "https://github.com/johnwakley/bddy#readme",
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^2.9.27"
+  },
   "devDependencies": {
     "babel": "^5.5.4",
-    "bluebird": "^2.9.27",
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
     "eslint": "^0.22.1",

@@ -14,12 +14,13 @@ describe('Should', function(){
 
 describe('Reading directory and sub-directory contents recursively', function(){
     it('Should display directory contents', function(){
-        //readDir('../').then(function(v){
-        //    console.log(v.join("\n"));
-        //});
+        const readPromise = readDir('./test');
 
-        return Promise.resolve(2 + 2).should.eventually.equal(4);
+        readPromise.then(function(v){
+            console.log(v.join("\n"));
+        });
 
+        return readPromise.should.eventually.contain('test/test.js');
     })
 });
 
