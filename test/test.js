@@ -1,19 +1,20 @@
 require('./helper/chai.js');
+const sinon = require("sinon");
 const Spec = require.main.require('src/model/Spec.js');
 
-var Promise = require("bluebird");
-var fs = Promise.promisifyAll(require("fs"));
-var Path = require("path");
+const Promise = require("bluebird");
+const fs = Promise.promisifyAll(require("fs"));
+const Path = require("path");
 
-describe('Should', function(){
+describe.skip('Should', function(){
     it('bar', function(){
         const foo = new Spec();
         foo.fooString.should.equal('bar');
     })
 });
 
-describe('Reading directory and sub-directory contents recursively', function(){
-    it('Should display directory contents', function(){
+describe.skip('Reading directory and sub-directory contents recursively', function(){
+    it('should display directory contents', function(){
         const readPromise = readDir('./test');
 
         readPromise.then(function(v){
@@ -23,6 +24,31 @@ describe('Reading directory and sub-directory contents recursively', function(){
         return readPromise.should.eventually.contain('test/test.js');
     })
 });
+
+describe('Sinon Stub', function(){
+    it('should call stub', function(){
+        const stub = sinon.stub().returns(42);
+        stub().should.equal(42);
+    })
+
+    it('should stub object method', function(){
+        const foo = Object.create(Foo);
+        foo.baz().should.equal('bananas');
+
+        sinon.stub(foo, "bar").returns('apple');
+        foo.baz().should.equal('apple');
+    })
+});
+
+const Foo = {
+    bar: function() {
+        return "bananas";
+    },
+    baz: function() {
+        return this.bar();
+    }
+}
+
 
 function readDir(dirName) {
     return fs.readdirAsync(dirName).map(function (fileName) {
