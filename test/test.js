@@ -38,6 +38,19 @@ describe('Sinon Stub', function(){
         sinon.stub(foo, "bar").returns('apple');
         foo.baz().should.equal('apple');
     })
+
+    it('should resolve promise', function(){
+        const foo = Object.create(Foo);
+        sinon.stub(foo, "bar").returns('apple');
+
+        const promise = foo.qux();
+
+        promise.then(function(x){
+            console.log(x);
+        });
+
+        return promise.should.eventually.equal('apple');
+    })
 });
 
 const Foo = {
@@ -46,6 +59,20 @@ const Foo = {
     },
     baz: function() {
         return this.bar();
+    },
+    qux: function() {
+        const selfBar = this.bar;
+
+        return new Promise(function(resolve, reject){
+            (function(error, data){
+                if (error) {
+                    reject(error);
+                } else {
+                    // resolve(data);
+                    resolve(selfBar());
+                }
+            }(null, 'foobar'));
+        });
     }
 }
 
