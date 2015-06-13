@@ -25,7 +25,7 @@ describe.skip('Reading directory and sub-directory contents recursively', functi
     })
 });
 
-describe('Sinon Stub', function(){
+describe.skip('Sinon Stub', function(){
     it('should call stub', function(){
         const stub = sinon.stub().returns(42);
         stub().should.equal(42);
