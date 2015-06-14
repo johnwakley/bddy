@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/johnwakley/bddy#readme",
   "dependencies": {
-    "bluebird": "^2.9.27"
+    "bluebird": "^2.9.27",
+    "tea-error": "^0.1.0"
   },
   "devDependencies": {
     "babel": "^5.5.4",
