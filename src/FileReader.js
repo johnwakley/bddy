@@ -4,16 +4,14 @@ const fs = Promise.promisifyAll(require("fs"));
 
 class FileReader {
     readFile(filename) {
-        const readFilePromise = fs.readFileAsync(filename, 'utf8');
-
-        readFilePromise.then((data) => {
-            return data;
-        })
-        .catch((error) => {
-            console.log("handled the error");
-        });
-
-        return readFilePromise;
+        return fs.readFileAsync(filename, 'utf8')
+            .then(data => {
+                // @TODO: do something with data
+            })
+            .catch(error => {
+                // @TODO: do something with error
+                throw new Error('error');
+            });
     }
 
     // Private
