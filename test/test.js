@@ -6,14 +6,14 @@ const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
 const Path = require("path");
 
-describe.skip('Should', function(){
+describe('Should', function(){
     it('bar', function(){
         const foo = new Spec();
         foo.fooString.should.equal('bar');
     })
 });
 
-describe.skip('Reading directory and sub-directory contents recursively', function(){
+describe('Reading directory and sub-directory contents recursively', function(){
     it('should display directory contents', function(){
         const readPromise = readDir('./test');
 
@@ -25,7 +25,7 @@ describe.skip('Reading directory and sub-directory contents recursively', functi
     })
 });
 
-describe.skip('Sinon Stub', function(){
+describe('Sinon Stub', function(){
     it('should call stub', function(){
         const stub = sinon.stub().returns(42);
         stub().should.equal(42);
