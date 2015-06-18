@@ -27,6 +27,7 @@ describe('Parse specification', function() {
         const ast = parser.parse(scanner, builder, new Gherkin.TokenMatcher());
         const result = JSON.stringify(ast, null, 2);
 
-        console.log(result);
+        //console.log(result);
+        console.log(ast.tags);
     });
 });
