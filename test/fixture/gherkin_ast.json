@@ -1,0 +1,271 @@
+{
+  "type": "Feature",
+  "tags": [
+    {
+      "type": "Tag",
+      "location": {
+        "line": 1,
+        "column": 1
+      },
+      "name": "@feature-tag"
+    }
+  ],
+  "location": {
+    "line": 2,
+    "column": 1
+  },
+  "language": "en",
+  "keyword": "Feature",
+  "name": "Sample Feature",
+  "description": "  In order to <impact>\n  As an <actor>\n  I want to <what>",
+  "background": {
+    "type": "Background",
+    "location": {
+      "line": 7,
+      "column": 3
+    },
+    "keyword": "Background",
+    "name": "",
+    "steps": [
+      {
+        "type": "Step",
+        "location": {
+          "line": 8,
+          "column": 5
+        },
+        "keyword": "Given ",
+        "text": "some background"
+      }
+    ]
+  },
+  "scenarioDefinitions": [
+    {
+      "type": "Scenario",
+      "tags": [
+        {
+          "type": "Tag",
+          "location": {
+            "line": 10,
+            "column": 3
+          },
+          "name": "@foo"
+        },
+        {
+          "type": "Tag",
+          "location": {
+            "line": 10,
+            "column": 8
+          },
+          "name": "@bar"
+        }
+      ],
+      "location": {
+        "line": 11,
+        "column": 3
+      },
+      "keyword": "Scenario",
+      "name": "Scenario One",
+      "description": "    This is a scenario description",
+      "steps": [
+        {
+          "type": "Step",
+          "location": {
+            "line": 13,
+            "column": 5
+          },
+          "keyword": "Given ",
+          "text": "context"
+        },
+        {
+          "type": "Step",
+          "location": {
+            "line": 14,
+            "column": 5
+          },
+          "keyword": "When ",
+          "text": "action"
+        },
+        {
+          "type": "Step",
+          "location": {
+            "line": 15,
+            "column": 5
+          },
+          "keyword": "Then ",
+          "text": "result",
+          "argument": {
+            "type": "DocString",
+            "location": {
+              "line": 16,
+              "column": 5
+            },
+            "contentType": "",
+            "content": "This is a doc string"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ScenarioOutline",
+      "tags": [
+        {
+          "type": "Tag",
+          "location": {
+            "line": 20,
+            "column": 3
+          },
+          "name": "@baz"
+        }
+      ],
+      "location": {
+        "line": 21,
+        "column": 3
+      },
+      "keyword": "Scenario Outline",
+      "name": "Scenario Two",
+      "steps": [
+        {
+          "type": "Step",
+          "location": {
+            "line": 22,
+            "column": 5
+          },
+          "keyword": "Given ",
+          "text": "<one>"
+        },
+        {
+          "type": "Step",
+          "location": {
+            "line": 23,
+            "column": 5
+          },
+          "keyword": "When ",
+          "text": "<two>"
+        },
+        {
+          "type": "Step",
+          "location": {
+            "line": 24,
+            "column": 5
+          },
+          "keyword": "Then ",
+          "text": "<three>"
+        }
+      ],
+      "examples": [
+        {
+          "type": "Examples",
+          "tags": [],
+          "location": {
+            "line": 26,
+            "column": 5
+          },
+          "keyword": "Examples",
+          "name": "",
+          "tableHeader": {
+            "type": "TableRow",
+            "location": {
+              "line": 27,
+              "column": 5
+            },
+            "cells": [
+              {
+                "type": "TableCell",
+                "location": {
+                  "line": 27,
+                  "column": 7
+                },
+                "value": "one"
+              },
+              {
+                "type": "TableCell",
+                "location": {
+                  "line": 27,
+                  "column": 13
+                },
+                "value": "two"
+              },
+              {
+                "type": "TableCell",
+                "location": {
+                  "line": 27,
+                  "column": 20
+                },
+                "value": "three"
+              }
+            ]
+          },
+          "tableBody": [
+            {
+              "type": "TableRow",
+              "location": {
+                "line": 28,
+                "column": 5
+              },
+              "cells": [
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 28,
+                    "column": 7
+                  },
+                  "value": "un"
+                },
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 28,
+                    "column": 13
+                  },
+                  "value": "deux"
+                },
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 28,
+                    "column": 20
+                  },
+                  "value": "trois"
+                }
+              ]
+            },
+            {
+              "type": "TableRow",
+              "location": {
+                "line": 29,
+                "column": 5
+              },
+              "cells": [
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 29,
+                    "column": 7
+                  },
+                  "value": "uno"
+                },
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 29,
+                    "column": 13
+                  },
+                  "value": "dos"
+                },
+                {
+                  "type": "TableCell",
+                  "location": {
+                    "line": 29,
+                    "column": 20
+                  },
+                  "value": "tres"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "comments": []
+}
