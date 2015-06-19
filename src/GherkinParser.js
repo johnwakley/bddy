@@ -19,8 +19,10 @@ class GherkinParser {
 
     _parseFeature(spec) {
         // @TODO: tags
-        // @TODO: description
-        return Immutable.Map({name: spec.name});
+        return Immutable.Map({
+            name: spec.name,
+            description: spec.description
+        });
     }
 
     _parseScenarios(spec) {
