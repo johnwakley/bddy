@@ -1,10 +1,12 @@
+const Immutable = require('immutable');
+
 class Spec {
-    constructor() {
-        this.foo = 'bar';
+    constructor(root) {
+        this._root = root;
     }
 
-    get fooString() {
-        return this.foo;
+    toJS() {
+        return this._root.toJS();
     }
 }
 

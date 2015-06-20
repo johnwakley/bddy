@@ -1,43 +1,131 @@
 // lib
 const _ = require('lodash');
 const Immutable = require('immutable');
+const Gherkin = require('gherkin');
+
+// app modules
+const Spec = require.main.require('src/model/Spec');
 
 class GherkinParser {
     constructor() {
         _.noop();
     }
 
-    parse(spec) {
-        return this._parseFeature(spec)
-            .set("scenarios", this._parseScenarios(spec))
-            .toJS();
+    parse(gherkin) {
+        const parser = new Gherkin.Parser();
+        parser.stopAtFirstError = false;
+        const builder = new Gherkin.AstBuilder();
+        const scanner = new Gherkin.TokenScanner(gherkin);
+        const ast = parser.parse(scanner, builder, new Gherkin.TokenMatcher());
+
+        // map Gherkin3 AST to bddy Spec model
+        const map = this._feature(ast)
+            .set("scenarios", this._scenarios(ast.scenarioDefinitions));
+
+        const spec = new Spec(map);
+
+        return spec.toJS();
     }
 
     //
     // private
     //
 
-    _parseFeature(spec) {
-        // @TODO: tags
+    _feature(spec) {
         return Immutable.Map({
             name: spec.name,
-            description: spec.description
+            description: _.trim(spec.description) || '',
+            tags: this._tags(spec.tags),
+            background: this._background(spec.background)
         });
     }
 
-    _parseScenarios(spec) {
-        // @TODO: tags
-        // @TODO: steps
-        // @TODO: examples
-        let scenarios = [];
-        spec.scenarioDefinitions.forEach(scenario => {
-            scenarios.push(Immutable.Map({
+    _background(backgroundSpec) {
+        return Immutable.Map({
+            name: backgroundSpec.name,
+            steps: this._steps(backgroundSpec.steps)
+        });
+    }
+
+    _scenarios(scenarios) {
+        let specScenarios = [];
+
+        scenarios.forEach(scenario => {
+            specScenarios.push(Immutable.Map({
                 name: scenario.name,
-                description: scenario.description
+                description: _.trim(scenario.description) || '',
+                tags: this._tags(scenario.tags),
+                steps: this._steps(scenario.steps),
+                examples: scenario.examples ? this._examples(scenario.examples) : Immutable.List()
             }));
         });
 
-        return Immutable.List(scenarios);
+        return Immutable.List(specScenarios);
+    }
+
+    _tags(tags) {
+        let specTags = [];
+
+        tags.forEach(tag => {
+            specTags.push(tag.name);
+        });
+
+        return Immutable.List(specTags);
+    }
+
+    _steps(steps) {
+        let specSteps = [];
+
+        steps.forEach(step => {
+            const keyword = _.trim(step.keyword);
+            const text = _.trim(step.text);
+            const name = `${keyword} ${text}`;
+
+            specSteps.push(name);
+        });
+
+        return Immutable.List(specSteps);
+    }
+
+    _examples(examples) {
+        let specExamples = [];
+
+        examples.forEach(example => {
+            const exampleMap = Immutable.Map({
+                name: example.name,
+                tableHeader: this._exampleTableHeader(example.tableHeader),
+                tableBody: this._exampleTableBody(example.tableBody)
+            });
+
+            specExamples.push(exampleMap);
+        });
+
+        return Immutable.List(specExamples);
+    }
+
+    _exampleTableHeader(tableHeader) {
+        let cells = [];
+
+        tableHeader.cells.forEach(cell => {
+            cells.push(cell.value);
+        });
+
+        return Immutable.List(cells);
+    }
+
+    _exampleTableBody(tableBody) {
+        let rows = [];
+
+        tableBody.forEach(row => {
+            let cells = [];
+            row.cells.forEach(cell => {
+                cells.push(cell.value);
+            })
+
+            rows.push(cells);
+        });
+
+        return Immutable.List(rows);
     }
 }
 

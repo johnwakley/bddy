@@ -4,7 +4,7 @@ Feature: Sample Feature
   As an <actor>
   I want to <what>
 
-  Background:
+  Background: Feature Background
     Given some background
 
   @foo @bar

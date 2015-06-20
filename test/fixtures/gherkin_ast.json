@@ -161,7 +161,7 @@
             "column": 5
           },
           "keyword": "Examples",
-          "name": "",
+          "name": "numbers",
           "tableHeader": {
             "type": "TableRow",
             "location": {

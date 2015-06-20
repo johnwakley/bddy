@@ -24,7 +24,7 @@ Feature: Sample Feature
     When <two>
     Then <three>
 
-    Examples:
+    Examples: numbers
       | one | two  | three |
       | un  | deux | trois |
       | uno | dos  | tres  |

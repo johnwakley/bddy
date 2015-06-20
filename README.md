@@ -1,5 +1,11 @@
 # bddy
 
+bddy <command> [<args>]
+
+e.g.
+
+bddy parse-gherkin <source> <destination>
+
 ## TODO
 
 [node.js command-line interfaces made easy](https://github.com/tj/commander.js)
