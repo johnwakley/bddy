@@ -2,7 +2,7 @@
   "name": "bddy",
   "version": "1.0.0",
   "description": "Specifications by example buddy",
-  "main": "bddy.js",
+  "main": "src/bddy.js",
   "config": {
     "MOCHA_OPTS": "test/"
   },

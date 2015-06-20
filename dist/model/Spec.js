@@ -4,17 +4,19 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+var Immutable = require('immutable');
+
 var Spec = (function () {
-    function Spec() {
+    function Spec(root) {
         _classCallCheck(this, Spec);
 
-        this.foo = 'bar';
+        this._root = root;
     }
 
     _createClass(Spec, [{
-        key: 'fooString',
-        get: function () {
-            return this.foo;
+        key: 'toJS',
+        value: function toJS() {
+            return this._root.toJS();
         }
     }]);
 

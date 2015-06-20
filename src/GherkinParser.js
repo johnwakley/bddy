@@ -4,7 +4,7 @@ const Immutable = require('immutable');
 const Gherkin = require('gherkin');
 
 // app modules
-const Spec = require.main.require('src/model/Spec');
+const Spec = require('./model/Spec');
 
 class GherkinParser {
     constructor() {

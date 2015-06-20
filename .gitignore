@@ -28,3 +28,5 @@ build/Release
 
 # Keep gherkin module until it's added to NPM
 !/node_modules/gherkin
+
+dist
