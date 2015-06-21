@@ -15,7 +15,7 @@ Feature: Command-line Interface
     Examples: Invalid arguments
     | parse-command | source-location | destination-location | result
     | NIL | NIL | NIL | "Parser type required"
-    | gherkin-parser | NIL | NIL | "Source location required"
-    | INVALID-PARSER | ~/feature-files | ~/feature-files/reports | "INVALID-PARSER not detected"
+    | gherkin-parser | NIL | NIL | "Parser source and destination location arguments required"
+    | INVALID-PARSER | ~/feature-files | ~/feature-files/reports | "INVALID-PARSER is not supported"
     | gherkin-parser | INVALID-SOURCE-LOCATION | ~/feature-files/reports | "Source: INVALID-SOURCE-LOCATION, does not exist"
     | gherkin-parser | ~/feature-files | INVALID-DESTINATION-LOCATION | "Destination: INVALID-DESTINATION-LOCATION, does not exist"
