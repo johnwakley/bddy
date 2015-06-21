@@ -12,24 +12,44 @@ class GherkinParser {
     }
 
     parse(gherkin) {
-        const parser = new Gherkin.Parser();
-        parser.stopAtFirstError = false;
-        const builder = new Gherkin.AstBuilder();
-        const scanner = new Gherkin.TokenScanner(gherkin);
-        const ast = parser.parse(scanner, builder, new Gherkin.TokenMatcher());
+        let ast = null;
 
-        // map Gherkin3 AST to bddy Spec model
-        const map = this._feature(ast)
-            .set("scenarios", this._scenarios(ast.scenarioDefinitions));
+        try {
+            ast = this._parseGherkin(gherkin);
+        }
+        catch (exception) {
+            return {
+                success: false,
+                error: exception
+            }
+        }
 
-        const spec = new Spec(map);
+        const spec = this._mapGherkinASTToSpecModel(ast);
 
-        return spec.toJS();
+        return {
+            success: true,
+            spec: spec.toJS()
+        }
     }
 
     //
     // private
     //
+    _parseGherkin(gherkin) {
+        const parser = new Gherkin.Parser();
+        parser.stopAtFirstError = false;
+        const builder = new Gherkin.AstBuilder();
+        const scanner = new Gherkin.TokenScanner(gherkin);
+
+        return parser.parse(scanner, builder, new Gherkin.TokenMatcher());
+    }
+
+    _mapGherkinASTToSpecModel(ast) {
+        const map = this._feature(ast)
+            .set("scenarios", this._scenarios(ast.scenarioDefinitions));
+
+        return new Spec(map);
+    }
 
     _feature(spec) {
         return Immutable.Map({

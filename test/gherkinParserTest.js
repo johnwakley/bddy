@@ -22,13 +22,14 @@ describe('Parse specification', function() {
         // when I invoke the parse command
         //
         const gherkinParser = new GherkinParser();
-        const feature = gherkinParser.parse(gherkin);
+        const result = gherkinParser.parse(gherkin);
+        const feature = result.spec;
 
         //
         // then I should see the following output:
         //
-        const result = JSON.stringify(feature, null, 2);
-        console.log(result);
+        //const result = JSON.stringify(feature, null, 2);
+        //console.log(result);
 
         feature.name.should.equal('Sample Feature');
         feature.description.should.equal('In order to <impact>\n  As an <actor>\n  I want to <what>');
@@ -54,5 +55,11 @@ describe('Parse specification', function() {
         example.name.should.equal('numbers');
         example.tableHeader.should.have.members(['one', 'two', 'three']);
         example.tableBody.should.have.deep.members([['un', 'deux', 'trois'], ['uno', 'dos', 'tres']]);
+    });
+
+    it('should report error when parsing an incorrectly formatted specification', () => {
+        const gherkinParser = new GherkinParser();
+        const result = gherkinParser.parse("bad pickles");
+        result.success.should.be.false;
     });
 });

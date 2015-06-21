@@ -5,7 +5,7 @@ const sinon = require("sinon");
 // app modules
 const CommandLineParser = require.main.require('src/CommandLineParser.js');
 
-describe.only('Command-line interface', function() {
+describe('Command-line interface', function() {
     it('should invoke command with valid arguments', () => {
         const command = new CommandLineParser();
         const results = command.parse(['node', 'bddy', CommandLineParser.Parser.GHERKIN_PARSER, 'source-location', 'destination-location']);
