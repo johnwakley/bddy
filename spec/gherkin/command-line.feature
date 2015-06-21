@@ -1,4 +1,4 @@
-Feature: Command Line Interface
+Feature: Command-line Interface
   In order to parse a variety of specification types from the command line
   I want the ability to define the type, source and destination of specifications to parse
 

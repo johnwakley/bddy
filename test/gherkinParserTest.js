@@ -16,13 +16,17 @@ const gherkin = require.main.require('test/fixtures/example.feature.js');
 const GherkinParser = require.main.require('src/GherkinParser.js');
 
 describe('Parse specification', function() {
-    it.only('should parse a correctly formatted specification', () => {
+    it('should parse a correctly formatted specification', () => {
+        //
         // given I have selected a correctly formatted gherkin feature file
         // when I invoke the parse command
+        //
         const gherkinParser = new GherkinParser();
         const feature = gherkinParser.parse(gherkin);
 
+        //
         // then I should see the following output:
+        //
         const result = JSON.stringify(feature, null, 2);
         console.log(result);
 

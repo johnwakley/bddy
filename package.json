@@ -22,6 +22,7 @@
   "homepage": "https://github.com/johnwakley/bddy#readme",
   "dependencies": {
     "bluebird": "^2.9.27",
+    "commander": "^2.8.1",
     "immutable": "^3.7.4",
     "lodash": "^3.9.3",
     "tea-error": "^0.1.0"
