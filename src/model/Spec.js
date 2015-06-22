@@ -10,4 +10,8 @@ class Spec {
     }
 }
 
+Spec.__proto__.FileExtension = {
+    GHERKIN: '.feature'
+};
+
 module.exports = Spec;

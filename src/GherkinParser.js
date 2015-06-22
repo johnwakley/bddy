@@ -70,6 +70,7 @@ class GherkinParser {
     _scenarios(scenarios) {
         let specScenarios = [];
 
+        // @TODO: use map instead of forEach
         scenarios.forEach(scenario => {
             specScenarios.push(Immutable.Map({
                 name: scenario.name,

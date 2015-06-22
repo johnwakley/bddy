@@ -28,8 +28,8 @@ describe('Parse specification', function() {
         //
         // then I should see the following output:
         //
-        //const result = JSON.stringify(feature, null, 2);
-        //console.log(result);
+        //const json = JSON.stringify(feature, null, 2);
+        //console.log(json);
 
         feature.name.should.equal('Sample Feature');
         feature.description.should.equal('In order to <impact>\n  As an <actor>\n  I want to <what>');
