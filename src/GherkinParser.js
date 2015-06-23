@@ -27,8 +27,9 @@ class GherkinParser {
         const spec = this._mapGherkinASTToSpecModel(ast);
 
         return {
+            // @TODO: implicit success if not error?
             success: true,
-            spec: spec.toJS()
+            content: spec.toJS()
         }
     }
 
@@ -70,6 +71,7 @@ class GherkinParser {
     _scenarios(scenarios) {
         let specScenarios = [];
 
+        // @TODO: parse docstrings
         // @TODO: use map instead of forEach
         scenarios.forEach(scenario => {
             specScenarios.push(Immutable.Map({

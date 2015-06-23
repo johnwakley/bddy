@@ -53,9 +53,9 @@ describe('Read specification', function() {
 
     it('should synchronously read a specification from an existing file', () => {
         const reader = new FileReader();
-        const fileContents = reader.readFileSync('./spec/gherkin/read.feature');
+        const result = reader.readFileSync('./spec/gherkin/read.feature');
 
-        (fileContents.length > 500).should.be.true;
+        (result.content.length > 500).should.be.true;
     });
 
     it('should synchronously attempt to read a specification from a nonexistent file', () => {

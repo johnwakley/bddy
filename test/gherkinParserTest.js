@@ -23,7 +23,7 @@ describe('Parse specification', function() {
         //
         const gherkinParser = new GherkinParser();
         const result = gherkinParser.parse(gherkin);
-        const feature = result.spec;
+        const feature = result.content;
 
         //
         // then I should see the following output:
