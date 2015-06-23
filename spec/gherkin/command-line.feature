@@ -2,7 +2,7 @@ Feature: Command-line Interface
   In order to parse a variety of specification types from the command line
   I want the ability to define the type, source and destination of specifications to parse
 
-  Scenario: Invoke command with arguments
+  Scenario Outline: Invoke command with arguments
     Given I am on the command line
     When I invoke the <parse-commnd> on <source-location> and <destination-location>
     Then I should see the following <result>

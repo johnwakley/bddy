@@ -3,7 +3,7 @@ Feature: Parse specification
   I want to parse specific specification types into a generic format
 
 
-  Scenario: Parse a correctly formatted specification
+  Scenario Outline: Parse a correctly formatted specification
     Given I have selected a correctly formatted <specification type>
     When I invoke the parse command
     Then I should see the following output:
@@ -16,7 +16,7 @@ Feature: Parse specification
     | gherkin feature file  |
 
 
-  Scenario: Parse an incorrectly formatted specification
+  Scenario Outline: Parse an incorrectly formatted specification
     Given I have selected an incorrectly formatted <specification type>
     When I invoke the parse command
     Then I should see and error message

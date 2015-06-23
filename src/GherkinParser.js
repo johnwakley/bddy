@@ -57,7 +57,7 @@ class GherkinParser {
             name: spec.name,
             description: _.trim(spec.description) || '',
             tags: this._tags(spec.tags),
-            background: this._background(spec.background)
+            background: spec.background ? this._background(spec.background) : ''
         });
     }
 
