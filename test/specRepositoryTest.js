@@ -18,6 +18,6 @@ describe.only('Fetch specifications', function() {
 
         const features = specRepository.fetch();
         const json = JSON.stringify(features, null, 2);
-        console.log(json);
+        //console.log(json);
     });
 });

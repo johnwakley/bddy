@@ -38,12 +38,18 @@ class FileReader {
     }
 
     fileList() {
+        // function overload
         if (arguments.length == 2) {
-            this._directory = arguments[0];
-            this._fileExtension = arguments[1];
+            const directory = arguments[0];
+            const fileExtension = arguments[1];
+             return this._fileList(directory, fileExtension);
+        } else {
+            return this._fileList(this._directory, this._fileExtension);
         }
+    }
 
-        if (!fs.existsSync(this._directory)) {
+    _fileList(directory, fileExtension) {
+        if (!fs.existsSync(directory)) {
             return {
                 success: false,
                 error: FileReader.Error.NONEXISTENT_DIRECTORY
@@ -51,12 +57,12 @@ class FileReader {
         }
 
         return fs
-            .readdirSync(this._directory)
+            .readdirSync(directory)
             .map(filename => {
-                const currentPath = path.join(this._directory, filename);
+                const currentPath = path.join(directory, filename);
                 const stat = fs.statSync(currentPath);
                 return stat.isDirectory()
-                    ? this.fileList(currentPath, this._fileExtension)
+                    ? this._fileList(currentPath, fileExtension)
                     : currentPath;
             })
             .reduce(function (a, b) {
