@@ -72,7 +72,7 @@ class FileReader {
     }
 }
 
-FileReader.__proto__.Error = {
+FileReader.Error = {
     NONEXISTENT_DIRECTORY: 'NONEXISTENT_DIRECTORY',
     READ_FILE_ERROR: 'READ_FILE_ERROR'
 };

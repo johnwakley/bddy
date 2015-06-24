@@ -10,7 +10,7 @@ class Spec {
     }
 }
 
-Spec.__proto__.FileExtension = {
+Spec.FileExtension = {
     GHERKIN: '.feature'
 };
 

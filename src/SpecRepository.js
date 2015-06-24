@@ -40,7 +40,7 @@ class SpecRepository {
     }
 }
 
-SpecRepository.__proto__.Error = {
+SpecRepository.Error = {
     READ_FAILED: 'READ_FAILED',
     PARSE_FAILED: 'PARSE_FAILED'
 };

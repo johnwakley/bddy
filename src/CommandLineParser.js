@@ -86,13 +86,13 @@ class CommandLineParser {
     }
 }
 
-CommandLineParser.__proto__.Error = {
+CommandLineParser.Error = {
     CLI_MISSING_PARSER: 1,
     CLI_INVALID_PARSER: 2,
     CLI_MISSING_ARGUMENTS: 3
 };
 
-CommandLineParser.__proto__.Parser = {
+CommandLineParser.Parser = {
     GHERKIN_PARSER: 'gherkin-parser'
 };
 

@@ -6,19 +6,12 @@ const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
 const Path = require("path");
 
-describe('Should', function(){
-    it('bar', function(){
-        const foo = new Spec();
-        foo.fooString.should.equal('bar');
-    })
-});
-
 describe('Reading directory and sub-directory contents recursively', function(){
     it('should display directory contents', function(){
         const readPromise = readDir('./test');
 
         readPromise.then(function(v){
-            console.log(v.join("\n"));
+            //console.log(v.join("\n"));
         });
 
         return readPromise.should.eventually.contain('test/test.js');
@@ -46,7 +39,7 @@ describe('Sinon Stub', function(){
         const promise = foo.qux();
 
         promise.then(function(x){
-            console.log(x);
+            //console.log(x);
         });
 
         return promise.should.eventually.equal('apple');
