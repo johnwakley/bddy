@@ -11,7 +11,7 @@ const command = new CommandLineParser();
 const commandArgs = command.parse(process.argv);
 
 if (commandArgs.error) {
-    console.error(commandArgs.error);
+    console.error(`Error: ${commandArgs.error}`);
 } else {
     const fileReader = new FileReader(commandArgs.source, Spec.FileExtension.GHERKIN);
     const gherkinParser = new GherkinParser();
