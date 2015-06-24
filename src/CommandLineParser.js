@@ -97,3 +97,5 @@ CommandLineParser.__proto__.Parser = {
 };
 
 module.exports = CommandLineParser;
+
+// @TODO: generate command line help
