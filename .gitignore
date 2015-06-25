@@ -30,3 +30,7 @@ build/Release
 !/node_modules/gherkin
 
 dist
+
+*.DS_Store
+
+.idea
