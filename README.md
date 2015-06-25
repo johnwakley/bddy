@@ -1,18 +1,18 @@
-# bddy
+# bddy is your specifications BFF, ya dig!
 
-bddy <command> [<args>]
+## Install
 
-e.g.
+```
+npm run build
+cd dist
+node bddy.js gherkin-parser [gherkin feature file directory path]
+```
 
-bddy parse-gherkin <source> <destination>
+## Test
 
-## TODO
-
-[node.js command-line interfaces made easy](https://github.com/tj/commander.js)
-
-[Walk a directory tree in node.js](https://github.com/substack/node-findit)
-
-[get colors in your node.js console](https://github.com/Marak/colors.js)
+```
+npm test
+```
 
 
 
