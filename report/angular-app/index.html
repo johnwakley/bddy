@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query">
+
+      </div>
+      <div class="col-md-10">
+        <!--Body content-->
+
+        <div class="features">
+          <div class="feature" ng-repeat="feature in features | filter:query">
+            <span class="tag" ng-repeat="tag in feature.tags">{{tag}} </span>
+            <h1>Feature: {{feature.name}}</h1>
+            <p>{{feature.description}}</p>
+
+            <div ng-if="feature.background">
+              <span>Background: {{feature.background.name}}</span>
+              <ul>
+                <li ng-repeat="step in feature.background.steps">
+                  {{step}}
+                </li>
+              </ul>
+            </div>
+
+            <div ng-repeat="scenario in feature.scenarios | filter:query">
+              <span class="tag" ng-repeat="tag in scenario.tags">{{tag}} </span>
+              <h2>Scenario: {{scenario.name}}</h2>
+              <div>{{scenario.description}}</div>
+              <ul>
+                <li ng-repeat="step in scenario.steps">
+                  {{step}}
+                </li>
+              </ul>
+
+              <div ng-repeat="example in scenario.examples">
+                <h3>Examples: {{example.name}}</h3>
+                <table>
+                  <tr>
+                    <th ng-repeat="cell in example.tableHeader">
+                      {{cell}}
+                    </th>
+                  </tr>
+                  <tr ng-repeat="row in example.tableBody">
+                    <td ng-repeat="cell in row">
+                      {{cell}}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

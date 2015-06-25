@@ -23,4 +23,8 @@ var Spec = (function () {
     return Spec;
 })();
 
+Spec.FileExtension = {
+    GHERKIN: '.feature'
+};
+
 module.exports = Spec;
